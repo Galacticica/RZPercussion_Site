@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import performed_piece, instruments
+
+admin.site.register(performed_piece)
+admin.site.register(instruments)

@@ -18,5 +18,8 @@ class performed_piece(models.Model):
     piece_type = models.CharField(max_length=100)
     instruments = models.ManyToManyField(instruments, related_name='musical_pieces')
 
+    def __str__(self):
+        return self.title
+
 
 

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import performed_piece, instruments
+from .models import Performed_Piece, Instruments
 
-admin.site.register(performed_piece)
-admin.site.register(instruments)
+admin.site.register(Performed_Piece)
+admin.site.register(Instruments)

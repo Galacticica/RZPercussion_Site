@@ -17,6 +17,7 @@ class performed_piece(models.Model):
     link = models.URLField(max_length=200)
     piece_type = models.CharField(max_length=100)
     instruments = models.ManyToManyField(instruments, related_name='musical_pieces')
+    date = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return self.title

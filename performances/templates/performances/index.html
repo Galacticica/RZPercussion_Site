@@ -1,0 +1,11 @@
+{% if latest_performances %}
+    <ul>
+        {% for performance in latest_performances %}
+        <li><a href="/performances/{{performance.id}}/">
+            {{performance.title}} by {{performance.composer}}
+        </a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No performances are available.</p>
+    {% endif %}

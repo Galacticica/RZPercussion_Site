@@ -15,8 +15,8 @@ def index(request):
 def performance(request, slug):
     piece = get_object_or_404(Performed_Piece, slug=slug)
     insts = [instrument.name for instrument in piece.instruments.all()]
-    players = [performer.name for performer in piece.performers.all()].sort()
-    print(players)
+    players = [performer.name for performer in piece.performers.all()]
+    players.sort()
     template = loader.get_template("performances/performance.html")
     context = {"piece" : piece, "instruments" : insts, "players" : players}
     return HttpResponse(template.render(context, request))

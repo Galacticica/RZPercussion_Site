@@ -1,7 +1,7 @@
 {% if latest_performances %}
     <ul>
         {% for performance in latest_performances %}
-        <li><a href="/performances/{{performance.id}}/">
+        <li><a href="{% url 'performance' performance.id %}">
             {{performance.title}} by {{performance.composer}}
         </a></li>
         {% endfor %}

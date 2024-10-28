@@ -1,7 +1,14 @@
 <body>
     <h1>
-        {{piece.title}} by {{piece.composer}}
+        {{piece.title}} by {{piece.composer}} 
     </h1>
+    {% if piece.arranger %} 
+        <h2>Arranged by {{piece.arranger}}</h2>
+        {% endif %}
+    <h3>Performed by:{% for player in players %}
+        <li>{{player}}</li>
+        {% endfor %}
+    </h3>
     <p> {{piece.description}} </p>
     <h5> {{piece.type}} </h5>
     <ul>

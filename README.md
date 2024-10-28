@@ -4,10 +4,6 @@
 - custom urls
 
 # Next Steps
-- more fields for my performances
-    - additional performers (maybe a seperate db, similar to instruments?)
-    - arranger
-    - event (if applicable)
-    - link to music?
+- why do performers return none?
 - sort options for performance page
 - filtering for performance page

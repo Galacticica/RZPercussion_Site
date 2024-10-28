@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from django.http import HttpResponse
 from django.template import loader
@@ -14,4 +14,7 @@ def index(request):
     return HttpResponse(template.render(context, request)) 
 
 def performance(request, performed_piece_id):
-    return HttpResponse("You're looking at piece %s" % performed_piece_id)
+    piece = get_object_or_404(Performed_Piece, pk=performed_piece_id)
+    template = loader.get_template("performances/performance.html")
+    context = {"piece" : piece}
+    return HttpResponse(template.render(context, request))

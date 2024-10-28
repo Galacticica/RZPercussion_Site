@@ -9,6 +9,9 @@
         <li>{{player}}</li>
         {% endfor %}
     </h3>
+    {% if piece.event %}
+    <h4>Performed for {{piece.event}}</h4>
+    {% endif %}
     <p> {{piece.description}} </p>
     <h5> {{piece.type}} </h5>
     <ul>
@@ -17,4 +20,7 @@
         {% endfor %}
     </ul>
     <iframe src={{piece.link}} width="960" height="540" allow="autoplay"></iframe>
+    {% if piece.music_link %}
+    <a href="{{piece.music_link}}">Find Music Here</a>
+    {% endif %}
 </body>

@@ -13,7 +13,9 @@ class Instruments(models.Model):
 class Performed_Piece(models.Model):
     title = models.CharField(max_length=100)
     composer = models.CharField(max_length=100)
+    arranger = models.CharField(max_length=100, blank=True)
     description = models.TextField()
+    event = models.CharField(max_length=100, blank=True)
     link = models.URLField(max_length=200)
     piece_type = models.CharField(max_length=100)
     instruments = models.ManyToManyField(Instruments, related_name='musical_pieces')

@@ -18,6 +18,7 @@ class Performed_Piece(models.Model):
     piece_type = models.CharField(max_length=100)
     instruments = models.ManyToManyField(Instruments, related_name='musical_pieces')
     date = models.DateField(null=True, blank=True)
+    slug = models.SlugField(default="", null=False)
     
 
     def __str__(self):

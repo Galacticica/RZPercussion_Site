@@ -12,8 +12,8 @@ def index(request):
     context = {"latest_performances" : latest_performances}
     return HttpResponse(template.render(context, request)) 
 
-def performance(request, performed_piece_id):
-    piece = get_object_or_404(Performed_Piece, pk=performed_piece_id)
+def performance(request, slug):
+    piece = get_object_or_404(Performed_Piece, slug=slug)
     insts = [instrument.name for instrument in piece.instruments.all()]
     template = loader.get_template("performances/performance.html")
     context = {"piece" : piece, "instruments" : insts}

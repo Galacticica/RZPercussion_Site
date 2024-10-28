@@ -4,5 +4,10 @@
     </h1>
     <p> {{piece.description}} </p>
     <h5> {{piece.type}} </h5>
+    <ul>
+        {% for instrument in instruments %}
+            <li> {{instrument}} </li>
+        {% endfor %}
+    </ul>
     <iframe src={{piece.link}} width="960" height="540" allow="autoplay"></iframe>
 </body>

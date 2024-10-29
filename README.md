@@ -6,3 +6,11 @@
 # Next Steps
 - sort options for performance page
 - filtering for performance page
+- composition page with same filtering options
+- others performance page with same filtering options
+    - also has link to form to send in performances
+
+
+# Later Steps
+- styling
+- hosting

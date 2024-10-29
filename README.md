@@ -12,5 +12,6 @@
 
 
 # Later Steps
+- user login and sign up
 - styling
 - hosting

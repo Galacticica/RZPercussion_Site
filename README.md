@@ -4,8 +4,11 @@
 - custom urls
 
 # Next Steps
-- sort options for performance page
-- filtering for performance page
+- sorting options for performance page
+    - newest first
+    - oldest first
+    - a-z
+- filtering by instrument or ensemble type for performance page
 - composition page with same filtering options
 - others performance page with same filtering options
     - also has link to form to send in performances

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 
 from django.http import HttpResponse
 from django.template import loader
-
+from django.db.models import Q
 from .models import Performed_Piece 
 from .forms import TitleSearchForm
 
@@ -12,7 +12,7 @@ def index(request):
     template = loader.get_template("performances/index.html")
     if title_search_form.is_valid():
         query = title_search_form.cleaned_data['query']
-        performances = performances.filter(title__icontains=query)
+        performances = performances.filter(Q(composer__icontains=query) | Q(title__icontains=query))
     context = {"performances" : performances, "title_search_form" : title_search_form}
     return HttpResponse(template.render(context, request)) 
 

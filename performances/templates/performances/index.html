@@ -6,9 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    {% if latest_performances %}
+    <form method="GET">
+        {{ title_search_form }}
+        <button type="submit">Search</button>
+    </form>
+
+    {% if performances %}
     <ul>
-        {% for performance in latest_performances %}
+        {% for performance in performances %}
         <li><a href="{% url 'performance' performance.slug %}">
             {{performance.title}} by {{performance.composer}}
         </a></li>

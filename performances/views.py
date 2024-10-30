@@ -4,12 +4,16 @@ from django.http import HttpResponse
 from django.template import loader
 
 from .models import Performed_Piece 
-
+from .forms import TitleSearchForm
 
 def index(request):
-    latest_performances = Performed_Piece.objects.order_by("-date")
+    performances = Performed_Piece.objects.order_by("-date")
+    title_search_form = TitleSearchForm(request.GET)
     template = loader.get_template("performances/index.html")
-    context = {"latest_performances" : latest_performances}
+    if title_search_form.is_valid():
+        query = title_search_form.cleaned_data['query']
+        performances = performances.filter(title__icontains=query)
+    context = {"performances" : performances, "title_search_form" : title_search_form}
     return HttpResponse(template.render(context, request)) 
 
 def performance(request, slug):

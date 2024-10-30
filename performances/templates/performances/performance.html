@@ -26,7 +26,7 @@
             <li> {{instrument}} </li>
         {% endfor %}
     </ul>
-    <iframe src={{piece.link}} width="960" height="540" allow="autoplay"></iframe>
+    <iframe width="560" height="315" src="{{piece.link}}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     {% if piece.music_link %}
     <a href="{{piece.music_link}}">Find Music Here</a>
     {% endif %}

@@ -1,4 +1,12 @@
-{% if latest_performances %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if latest_performances %}
     <ul>
         {% for performance in latest_performances %}
         <li><a href="{% url 'performance' performance.slug %}">
@@ -9,3 +17,5 @@
     {% else %}
     <p>No performances are available.</p>
     {% endif %}
+</body>
+</html>

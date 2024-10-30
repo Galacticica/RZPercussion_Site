@@ -10,6 +10,7 @@
     - a-z
 - filtering by instrument or ensemble type for performance page
     - could be like a single form with multiple options
+    - for things such as event would it make more sense for it to be a seperate model that the performed piece inherits?
 - composition page with same filtering options
 - others performance page with same filtering options
     - also has link to form to send in performances

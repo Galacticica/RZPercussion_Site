@@ -1,2 +1,10 @@
 <p>home page test</p>
 <a href="{% url 'rz_performance_index' %}">RZ Performances</a>
+{% load account %}
+<p>
+{% if user.is_authenticated %}
+    {% user_display user %}
+{% else %}
+    Guest
+{% endif %}
+</p>

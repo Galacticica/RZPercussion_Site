@@ -2,7 +2,6 @@
 <a href="{% url 'rz_performance_index' %}">RZ Performances</a>
 {% load account %}
 <p>
-    {{user.username}}
 {% if user.is_authenticated %}
     {% user_display user %}
 {% else %}

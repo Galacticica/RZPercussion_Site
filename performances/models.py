@@ -1,7 +1,19 @@
 from django.db import models
 
+class InstrumentCategory(models.Model):
+    category = models.CharField(max_length=100)
+    def __str__(self):
+        return self.category
+
 class Instruments(models.Model):
     name = models.CharField(max_length=100)
+    category = models.ForeignKey(
+    InstrumentCategory, 
+    related_name='categorized_instruments', 
+    on_delete=models.SET_DEFAULT, 
+    default=1,
+    blank=False
+)
 
     def __str__(self):
         return self.name

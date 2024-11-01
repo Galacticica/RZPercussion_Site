@@ -1,9 +1,10 @@
 from django.contrib import admin
 
-from .models import Performed_Piece, Instruments, Performers
+from .models import Performed_Piece, Instruments, Performers, InstrumentCategory
 
 
 admin.site.register(Instruments)
+admin.site.register(InstrumentCategory)
 admin.site.register(Performers)
 
 class PerformanceAdmin(admin.ModelAdmin):

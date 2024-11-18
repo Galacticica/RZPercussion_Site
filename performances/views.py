@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 
 from django.http import HttpResponse
 from django.template import loader
-from django.db.models import Q
+from django.db.models import Q, Count
 from django.shortcuts import redirect
 from .models import Performed_Piece 
 from .forms import PerformanceSearchForm
@@ -14,8 +14,16 @@ def index(request):
     if performance_search_form.is_valid():
         title_query = performance_search_form.cleaned_data['title_query']
         composer_query = performance_search_form.cleaned_data['composer_query']
+        instrument_query = performance_search_form.cleaned_data['instrument_query']
         performances = performances.filter(title__icontains=title_query)
         performances = performances.filter(composer__icontains=composer_query)
+        if instrument_query:
+            performances = performances.filter(instruments__in=instrument_query).distinct()
+            performances = performances.annotate(
+            instrument_count=Count('instruments', distinct=True)
+            ).filter(
+            instrument_count=len(instrument_query)
+            )
     context = {"performances" : performances, "performance_search_form" : performance_search_form}
     return HttpResponse(template.render(context, request)) 
 

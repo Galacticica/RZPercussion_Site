@@ -1,37 +1,49 @@
 {% extends 'performances/base.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <link rel="stylesheet" href="{% static 'performance.css' %}">
     <title>Document</title>
+    {% endblock %}
 </head>
 <body>
     {% block content %}
-    <h1>
-        {{piece.title}} by {{piece.composer}} 
+    <h1 id="PieceTitle">
+        {{piece.title}}
     </h1>
+    <h2 id="PieceWriters">Composed by {{piece.composer}}
     {% if piece.arranger %} 
-        <h2>Arranged by {{piece.arranger}}</h2>
-        {% endif %}
-    <h3>Performed by:{% for player in players %}
-        <li>{{player}}</li>
-        {% endfor %}
-    </h3>
-    {% if piece.event %}
-    <h4>Performed for {{piece.event}}</h4>
-    {% endif %}
-    <p> {{piece.description}} </p>
-    <h5> {{piece.type}} </h5>
-    <ul>
-        {% for instrument in instruments %}
-            <li> {{instrument}} </li>
-        {% endfor %}
-    </ul>
-    <iframe width="560" height="315" src="{{piece.link}}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <p>{% if piece.music_link %}
-    <a href="{{piece.music_link}}">Find Music Here</a>
-    {% endif %}</p>
+        <br>Arranged by {{piece.arranger}}
+        {% endif %}</h2>
+        <div class="container">
+            <div class="column">
+                <p id="PieceType">Piece Type: {{piece.piece_type}}</p>
+                <p id="InstrumentUsed"> <span id="InstrumentUsedLabel">Instruments Used:</span> {% for instrument in instruments %}
+                        {{ instrument }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                <p id="Description">{{piece.description}}</p>
+            </div>
+        
+            <div class="column">
+                <iframe width="560" height="315" src="{{piece.link}}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+                <h3>Performed by:</h3>
+                <ul>
+                    {% for player in players %}
+                        <li>{{player}}</li>
+                    {% endfor %}
+                </ul>
+        
+                {% if piece.event %}
+                    <h4>Performed for {{piece.event}}</h4>
+                {% endif %}
+            </div>
+        </div>
     {% endblock %}
 </body>
 </html>

@@ -1,3 +1,4 @@
+{% extends 'performances/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    {% block content %}
     <h1>
         {{piece.title}} by {{piece.composer}} 
     </h1>
@@ -27,8 +29,9 @@
         {% endfor %}
     </ul>
     <iframe width="560" height="315" src="{{piece.link}}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    {% if piece.music_link %}
+    <p>{% if piece.music_link %}
     <a href="{{piece.music_link}}">Find Music Here</a>
-    {% endif %}
+    {% endif %}</p>
+    {% endblock %}
 </body>
 </html>

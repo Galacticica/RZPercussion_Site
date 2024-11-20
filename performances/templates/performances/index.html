@@ -1,3 +1,4 @@
+{% extends 'performances/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    {% block content %}
     <form method="GET">
         {{ performance_search_form }}
         <button type="submit">Search</button>
@@ -22,5 +24,6 @@
     {% else %}
     <p>No performances are available.</p>
     {% endif %}
+    {% endblock %}
 </body>
 </html>

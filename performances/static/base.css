@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(238, 208, 255); 
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#RZPercussion {
+    font-size: 100px; 
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(
+        90deg,
+        rgb(255, 0, 0),     Red 
+        rgb(255, 165, 0),   Orange 
+        rgb(255, 255, 0),   Yellow 
+        rgb(0, 255, 0),     Green 
+        rgb(0, 0, 255),     Blue 
+        rgb(75, 0, 130),   Indigo 
+        rgb(238, 130, 238)  Violet 
+    );
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+ */

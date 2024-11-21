@@ -26,13 +26,14 @@
     </details>
 
     {% if performances %}
-    <ul>
+    <div class="performances-list">
         {% for performance in performances %}
-        <li><a href="{% url 'performance' performance.slug %}">
-            {{performance.title}} by {{performance.composer}}
-        </a></li>
+        <div class="performance-row">
+            <a href="{% url 'performance' performance.slug %}" id="PerformanceTitle">{{ performance.title }} by {{performance.composer}} {% if performance.arranger %} arranged by {{performance.arranger}} {% endif %}</a>
+            <p id="PerformanceOther">{{performance.piece_type}} {% if performance.event %} performed for {{performance.event}} {% endif %}</p>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
     {% else %}
     <p>No performances are available.</p>
     {% endif %}

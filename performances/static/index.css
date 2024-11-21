@@ -44,3 +44,42 @@ form {
         cursor: pointer; 
         color: #555;
     }
+
+    .performance-row {
+        padding: 10px 10px 5px 10px; 
+        border-bottom: 3px solid #000000; 
+    }
+    
+    .performance-row:last-child {
+        border-bottom: none; 
+    }
+    
+    .performance-row p {
+        margin: 5px 0; 
+        line-height: 1.4; 
+    }
+    
+    .performances-list {
+        margin-top: 20px; 
+    }
+
+
+#PerformanceTitle,
+#PerformanceOther {
+    font-weight: bold;
+    margin: 5px auto; 
+    max-width: 80%; 
+    padding: 5px; 
+    box-sizing: border-box; 
+    display: block; /* Ensures both are block-level elements */
+    text-align: left; /* Aligns the text to the same direction */
+}
+
+#PerformanceTitle {
+    font-size: 21px; 
+}
+
+#PerformanceOther {
+    font-size: 17px; 
+}
+    

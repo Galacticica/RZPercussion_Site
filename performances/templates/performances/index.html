@@ -1,17 +1,29 @@
 {% extends 'base.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+    {% endblock %}
 </head>
+<div>
 <body>
     {% block content %}
+    <details>
+        <summary>Filter Performances</summary>
     <form method="GET">
-        {{ performance_search_form }}
-        <button type="submit">Search</button>
+        {{ performance_search_form.as_p }}
+        <button type="submit" class="styled-button">Search</button>
     </form>
+    </details>
 
     {% if performances %}
     <ul>
@@ -24,6 +36,16 @@
     {% else %}
     <p>No performances are available.</p>
     {% endif %}
+
+    <script>
+        $(document).ready(function() {
+            $('.multi-checkbox-dropdown').select2({
+                placeholder: "Select instruments",
+                closeOnSelect: false,  
+                allowClear: true
+            });
+        });
+    </script>
     {% endblock %}
 </body>
 </html>

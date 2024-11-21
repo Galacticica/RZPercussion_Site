@@ -4,11 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block title %}<title>Document</title>{% endblock %}
 </head>
 <body>
-    <h1 id="RZPercussion">RZPercussion</h1>
+    <p id="RZPercussion">RZPercussion</p>
+        <nav>
+            <ul>
+                <li><a href="{% url 'rz_performance_index' %}">Performaces</a></li>
+            </ul>
+        </nav>
     {% block content %}
     {% endblock %}
 </body>

@@ -1,4 +1,4 @@
-{% extends 'performances/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -27,21 +27,31 @@
                     {% endfor %}
                 </p>
                 <p id="Description">{{piece.description}}</p>
+                {% if piece.music_link %}
+                <a href="{{piece.music_link}}" id="MusicLink" target="_blank">Click Here For Music</a>
+                {% endif %}
             </div>
         
             <div class="column">
-                <iframe width="560" height="315" src="{{piece.link}}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        
-                <h3>Performed by:</h3>
-                <ul>
-                    {% for player in players %}
-                        <li>{{player}}</li>
-                    {% endfor %}
-                </ul>
-        
+                    <p id="PerformerLabel">Performed by
+                        {% if players|length == 1 %}
+                            {{ players.0 }}
+                        {% elif players|length == 2 %}
+                            {{ players.0 }} and {{ players.1 }}
+                        {% else %}
+                            {% for player in players %}
+                                {% if forloop.last %}
+                                    and {{ player }}
+                                {% else %}
+                                    {{ player }},
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </p>
                 {% if piece.event %}
-                    <h4>Performed for {{piece.event}}</h4>
+                    <p id="Event">Performed for {{ piece.event }}</p>
                 {% endif %}
+                <iframe width="560" height="315" src="{{piece.link}}?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     {% endblock %}

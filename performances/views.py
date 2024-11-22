@@ -32,6 +32,7 @@ def performance(request, slug):
     insts = [instrument.name for instrument in piece.instruments.all()]
     players = [performer.name for performer in piece.performers.all()]
     players.sort()
+    insts.sort()
     template = loader.get_template("performances/performance.html")
     context = {"piece" : piece, "instruments" : insts, "players" : players}
     return HttpResponse(template.render(context, request))

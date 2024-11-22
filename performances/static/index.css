@@ -71,8 +71,8 @@ form {
     max-width: 80%; 
     padding: 5px; 
     box-sizing: border-box; 
-    display: block; /* Ensures both are block-level elements */
-    text-align: left; /* Aligns the text to the same direction */
+    display: block; 
+    text-align: left; 
 }
 
 #PerformanceTitle {

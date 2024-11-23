@@ -15,6 +15,7 @@ def index(request):
         title_query = composition_search_form.cleaned_data['title_query']
         complete_query = composition_search_form.cleaned_data.get('complete_query')
         instrument_query = composition_search_form.cleaned_data['instrument_query']
+        type_query = composition_search_form.cleaned_data['type_query']
         compositions = compositions.filter(title__icontains=title_query)
         if complete_query:
             compositions = compositions.filter(complete=True)
@@ -25,6 +26,8 @@ def index(request):
             ).filter(
             instrument_count=len(instrument_query)
             )
+        if type_query:
+            compositions = compositions.filter(piece_type__icontains=type_query)
     context = {"compositions" : compositions, "composition_search_form" : composition_search_form}
     return HttpResponse(template.render(context, request))
 

@@ -15,6 +15,7 @@ def index(request):
         title_query = performance_search_form.cleaned_data['title_query']
         composer_query = performance_search_form.cleaned_data['composer_query']
         instrument_query = performance_search_form.cleaned_data['instrument_query']
+        type_query = performance_search_form.cleaned_data['type_query']
         performances = performances.filter(title__icontains=title_query)
         performances = performances.filter(Q(composer__icontains=composer_query) | Q(arranger__icontains=composer_query))
         if instrument_query:
@@ -24,6 +25,8 @@ def index(request):
             ).filter(
             instrument_count=len(instrument_query)
             )
+        if type_query:
+            performances = performances.filter(piece_type__icontains=type_query)
     context = {"performances" : performances, "performance_search_form" : performance_search_form}
     return HttpResponse(template.render(context, request)) 
 

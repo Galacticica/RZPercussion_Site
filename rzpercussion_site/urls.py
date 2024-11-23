@@ -24,4 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('accounts/profile/', RedirectView.as_view(url='/'), name='profile'),
+    path("about-me/", include("aboutme.urls")),
+    path("compositions/", include("compositions.urls"))
 ]

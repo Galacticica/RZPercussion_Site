@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>About Me</title>
+    <link rel="stylesheet" href="{% static 'about.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <img src="{% static 'pfp.jpg' %}" alt="PFP" class="wrapped-image">
+        <p id="AboutText">My name is Reagan Zierke. I'm currently a freshman studying computer science at Concordia University Nebraska. 
+            I've been playing piano since I was 8 and percussion since I was 10. I was the auxiliary section leader both my junior 
+            and senior year of high school. I was also essentially the resident percussion tech. I've also dabbled in the world of composing and arranging.
+            I've participated in numerous solo contests, honor bands, ensembles, and more. 
+            Some notable performances include performing my own compositions at an end of year concert, my percussion ensemble performing at the Iowa Bandmaster's Association Conference, and the Concordia Wind Symphony performing at the Nebraska Music Educator's Association Conference on the Lied Center Stage.
+            I'm planning to continue performing and composing music as long as I possibly can.</p>
+    </div>
+    {% endblock %}
+</body>
+</html>

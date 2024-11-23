@@ -83,3 +83,21 @@ form {
     font-size: 17px; 
 }
     
+.container {
+    display: flex; 
+    flex-wrap: nowrap; 
+    align-items: flex-start; 
+    gap: 1px;
+}
+
+.thumbnail {
+    flex-shrink: 0; 
+    width: 120px; 
+    height: auto;
+    display: block;
+}
+
+.details {
+    flex: 1; 
+    text-align: left; 
+}

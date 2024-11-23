@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block title %}
-    <title>Document</title>
+    <title>Performances</title>
     <link rel="stylesheet" href="{% static 'index.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -29,8 +29,21 @@
     <div class="performances-list">
         {% for performance in performances %}
         <div class="performance-row">
-            <a href="{% url 'performance' performance.slug %}" id="PerformanceTitle">{{ performance.title }} by {{performance.composer}} {% if performance.arranger %} arranged by {{performance.arranger}} {% endif %}</a>
-            <p id="PerformanceOther">{{performance.piece_type}} {% if performance.event %} performed for {{performance.event}} {% endif %}</p>
+            <div class="container">
+                {% with performance.link|slice:"30:41" as youtube_id %}
+                <img class="thumbnail" src="https://img.youtube.com/vi/{{youtube_id}}/default.jpg" alt="Thumbnail">
+                {% endwith %}
+                <div class="details">
+                    <a href="{% url 'performance' performance.slug %}" id="PerformanceTitle">
+                        {{ performance.title }} by {{ performance.composer }}
+                        {% if performance.arranger %} arranged by {{ performance.arranger }} {% endif %}
+                    </a>
+                    <p id="PerformanceOther">
+                        {{ performance.piece_type }}
+                        {% if performance.event %} performed for {{ performance.event }} {% endif %}
+                    </p>
+                </div>
+            </div>
         </div>
         {% endfor %}
     </div>

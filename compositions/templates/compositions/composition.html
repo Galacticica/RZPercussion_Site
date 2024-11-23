@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <link rel="stylesheet" href="{% static 'composition.css' %}">
+    <title>{{piece.title}}</title>
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <h1 id="PieceTitle">
+        {{piece.title}}
+    </h1>
+    <div class="container">
+        <div class="column">
+            <iframe width="100%" height="400" src={{piece.link}} frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>
+        </div>
+        <div class="column">
+            {% if piece.og_composer %}
+            <p id="Composer">Originally Composed By {{piece.og_composer}}</p>
+            {% endif %}
+            {% if piece.complete is False %}
+            <p id="Status">Status: In Progress</p>
+            {% else %}
+            <p id="Status">Status: Completed</p>
+            {% endif %}
+            <p id="Type">Written for: {{piece.piece_type}}</p>
+            <p id="InstrumentUsed"> <span id="InstrumentUsedLabel">Instruments Used:</span> {% for instrument in instruments %}
+                {{ instrument }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+            </p>
+            <p id="Description">{{piece.description}}</p>
+
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -43,3 +43,19 @@ class PerformanceSearchForm(forms.Form):
     class Meta:
         model = Performed_Piece
         fields = ['title', 'composer', 'arranger', 'instruments', 'piece_type']
+
+
+class SortForm(forms.Form):
+    SORT_CHOICES = [
+        ('newest', 'Date (Newest to Oldest)'),
+        ('oldest', 'Date (Oldest to Newest)'),
+        ('alphabetical', 'Alphabetical (A-Z)'),
+    ]
+
+    sort_by = forms.ChoiceField(
+        choices=SORT_CHOICES,
+        widget=forms.RadioSelect(attrs={'class': 'styled-radio'}),
+        label="Sort by",
+        required=False,
+        initial='newest'
+    )

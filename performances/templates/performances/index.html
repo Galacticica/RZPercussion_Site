@@ -23,6 +23,9 @@
         <button type="submit" class="styled-button">Search</button>
     </form>
     </details>
+    <form method="GET" id="sort_form">
+        {{ sort_form.as_p }}
+    </form>
 
     {% if performances %}
     <div class="performances-list">
@@ -58,6 +61,10 @@
                 allowClear: true
             });
         });
+
+        document.getElementById('sort_form').addEventListener('change', function() {
+        this.submit();
+    });
     </script>
     {% endblock %}
 </body>

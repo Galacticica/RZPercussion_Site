@@ -2,6 +2,19 @@ form {
     margin-left: 20px; 
     }
 
+
+    .styled-radio input[type="radio"] {
+        margin-right: 8px;
+    }
+    
+    .styled-radio label {
+        display: block;
+        margin: 5px 0;
+        font-size: 14px;
+        color: #333;
+        cursor: pointer;
+    }
+
     .styled-input {
         border: 1px solid #aaa; 
         border-radius: 4px; 

@@ -19,7 +19,7 @@ from django.urls import include, path
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    path("", include("home.urls")),
+    path("", RedirectView.as_view(url='/about-me')),
     path("performances/", include("performances.urls")),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
@@ -27,3 +27,15 @@ urlpatterns = [
     path("about-me/", include("aboutme.urls")),
     path("compositions/", include("compositions.urls"))
 ]
+
+
+# use this when official home page is added
+# urlpatterns = [
+#     path("", include("home.urls")),
+#     path("performances/", include("performances.urls")),
+#     path('admin/', admin.site.urls),
+#     path('accounts/', include('allauth.urls')),
+#     path('accounts/profile/', RedirectView.as_view(url='/'), name='profile'),
+#     path("about-me/", include("aboutme.urls")),
+#     path("compositions/", include("compositions.urls"))
+# ]

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u)xa1!j#n8tm))_x@ki*xu!a_@m088l^_d85477i^e@ygkjo#b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'rzpercussion.org', 'www.rzpercussion.org']
 
 
 # Application definition

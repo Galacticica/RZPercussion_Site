@@ -18,14 +18,12 @@
     {% block content %}
     <details>
         <summary>Filter Performances</summary>
-    <form method="GET">
+    <form method="GET" id="filter_form">
         {{ performance_search_form.as_p }}
+        {{ sort_form.as_p }}
         <button type="submit" class="styled-button">Search</button>
     </form>
     </details>
-    <form method="GET" id="sort_form">
-        {{ sort_form.as_p }}
-    </form>
 
     {% if performances %}
     <div class="performances-list">
@@ -55,16 +53,24 @@
 
     <script>
         $(document).ready(function() {
-            $('.multi-checkbox-dropdown').select2({
+            $('.multi-checkbox-dropdown-insts').select2({
                 placeholder: "Select instruments",
                 closeOnSelect: false,  
                 allowClear: true
             });
         });
 
-        document.getElementById('sort_form').addEventListener('change', function() {
-        this.submit();
-    });
+        $(document).ready(function() {
+            $('.multi-checkbox-dropdown-type').select2({
+                placeholder: "Select Piece Types", 
+                closeOnSelect: false,
+                allowClear: true                  
+            });
+        });
+
+        // document.getElementById('filter_form').addEventListener('change', function() {
+        //     this.submit();
+        // });
     </script>
     {% endblock %}
 </body>

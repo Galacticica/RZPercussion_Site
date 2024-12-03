@@ -18,6 +18,11 @@ class Instruments(models.Model):
     def __str__(self):
         return self.name
 
+class PieceType(models.Model):
+    type = models.CharField(max_length=100)
+    def __str__(self):
+        return self.type
+
 class Performers(models.Model):
     name = models.CharField(max_length=100)
 

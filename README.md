@@ -5,10 +5,9 @@
 - sort by options
 
 # Next Steps
-- hosting site
-- fix piece type sorting
-- home page
+- deploy site
 - 404 page
+- querysets and cleaner views
 
 # Later Steps
 - others performance page with same filtering options

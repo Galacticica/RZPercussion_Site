@@ -5,6 +5,9 @@ class InstrumentCategory(models.Model):
     def __str__(self):
         return self.category
 
+class InstrumentsQuerySet(models.QuerySet["Instruments"]):
+    pass
+
 class Instruments(models.Model):
     name = models.CharField(max_length=100)
     category = models.ForeignKey(
@@ -14,6 +17,7 @@ class Instruments(models.Model):
     default=1,
     blank=False
 )
+    # objects: InstrumentsQuerySet = InstrumentsQuerySet.as_manager()
 
     def __str__(self):
         return self.name

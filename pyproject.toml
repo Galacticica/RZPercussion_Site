@@ -7,4 +7,5 @@ requires-python = ">=3.12"
 dependencies = [
     "django-allauth>=65.1.0",
     "django>=5.1.2",
+    "whitenoise>=6.8.2",
 ]

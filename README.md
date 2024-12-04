@@ -8,7 +8,6 @@
 
 # Next Steps
 - deploy site
-- 500 page
 - home page
 - querysets and cleaner views
 

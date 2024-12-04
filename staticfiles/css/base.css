@@ -1,0 +1,62 @@
+body {
+    background-color: rgb(238, 208, 255); 
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    overflow-x: hidden; 
+    margin: 0; 
+    padding: 0; 
+    width: 100%; 
+}
+
+a {
+    color: black; 
+    text-decoration: none; 
+  }
+
+a:hover {
+    text-decoration: underline;
+}
+
+#RZPercussion {
+    font-size: 100px; 
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+nav {
+    background-color: rgb(101, 0, 177); 
+    padding: 10px;
+    text-align: center; 
+    width: 100%; 
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+nav ul {
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: inline-flex; 
+}
+
+nav ul li {
+    margin: 0 15px; 
+}
+
+nav a {
+    color: white; 
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: none; 
+}
+
+

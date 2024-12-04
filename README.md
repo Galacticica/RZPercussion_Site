@@ -6,6 +6,7 @@
 
 # Next Steps
 - deploy site
+- documentation
 - 404 page
 - querysets and cleaner views
 

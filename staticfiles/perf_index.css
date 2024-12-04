@@ -1,0 +1,116 @@
+form {
+    margin-left: 20px; 
+    }
+
+
+    .styled-radio input[type="radio"] {
+        margin-right: 8px;
+    }
+    
+    .styled-radio label {
+        display: block;
+        margin: 5px 0;
+        font-size: 14px;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .styled-input {
+        border: 1px solid #aaa; 
+        border-radius: 4px; 
+        padding: 6px 12px; 
+        font-size: 14px; 
+        width: 50%; 
+        box-sizing: border-box; 
+    }
+
+    .styled-button {
+    background-color: #f8f9fa;
+    border: 1px solid #aaa; 
+    border-radius: 4px; 
+    padding: 6px 12px; 
+    font-size: 14px; 
+    color: #333; 
+    cursor: pointer; 
+    transition: background-color 0.2s ease; 
+    }
+
+    .styled-button:hover {
+        background-color: #e2e6ea; 
+    }
+
+    .styled-button:active {
+        background-color: #d6d8db; 
+    }
+
+    summary {
+        font-size: 16px; 
+        margin-top: 10px;
+        margin-left: 20px; 
+        font-weight: bold; 
+        color: #000000; 
+        display: block; 
+
+    }
+
+    summary:hover {
+        cursor: pointer; 
+        color: #555;
+    }
+
+    .performance-row {
+        padding: 10px 10px 5px 10px; 
+        border-bottom: 3px solid #000000; 
+    }
+    
+    .performance-row:last-child {
+        border-bottom: none; 
+    }
+    
+    .performance-row p {
+        margin: 5px 0; 
+        line-height: 1.4; 
+    }
+    
+    .performances-list {
+        margin-top: 20px; 
+    }
+
+
+#PerformanceTitle,
+#PerformanceOther {
+    font-weight: bold;
+    margin: 5px auto; 
+    max-width: 80%; 
+    padding: 5px; 
+    box-sizing: border-box; 
+    display: block; 
+    text-align: left;
+}
+
+#PerformanceTitle {
+    font-size: 21px; 
+}
+
+#PerformanceOther {
+    font-size: 17px; 
+}
+    
+.container {
+    display: flex; 
+    flex-wrap: nowrap; 
+    align-items: flex-start; 
+    gap: 1px;
+}
+
+.thumbnail {
+    flex-shrink: 0; 
+    width: 120px; 
+    height: auto;
+    display: block;
+}
+
+.details {
+    flex: 1; 
+    text-align: left; 
+}

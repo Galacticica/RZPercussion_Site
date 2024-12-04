@@ -1,0 +1,111 @@
+#PieceTitle {
+    font-size: 60px; 
+    font-weight: bold;
+    text-align: center;
+    margin: 5px auto; 
+    max-width: 800px; 
+    padding: 5px; 
+    box-sizing: border-box; 
+}
+
+#PieceWriters {
+    font-size: 30px; 
+    font-weight: bold;
+    text-align: center;
+    margin: 5px auto; 
+    max-width: 800px; 
+    padding: 5px; 
+    box-sizing: border-box; 
+}
+
+#Description{
+    font-size: 19px; 
+    text-align: center;
+    margin: 5px auto; 
+    max-width: 80%; 
+    padding: 5px; 
+    box-sizing: border-box; 
+}
+
+#PieceType{
+    font-size: 21px; 
+    font-weight: bold;
+    text-align: center;
+    margin: 5px auto; 
+    max-width: 80%; 
+    padding: 5px; 
+    box-sizing: border-box; 
+}
+
+#InstrumentUsedLabel{
+    font-size: 21px; 
+    font-weight: bold;
+    text-align: center;
+    margin: 5px auto; 
+    max-width: 80%; 
+    padding: 5px; 
+    box-sizing: border-box; 
+}
+
+#InstrumentUsed{
+    font-size: 18px; 
+    text-align: center;
+    margin: 5px auto; 
+    max-width: 80%; 
+    padding: 5px; 
+    box-sizing: border-box; 
+}
+
+#Event{
+    font-size: 21px; 
+    font-weight: bold;
+    text-align: center;
+    margin: 5px auto; 
+    max-width: 80%; 
+    padding: 5px; 
+    box-sizing: border-box; 
+}
+
+#PerformerLabel{
+    font-size: 21px; 
+    font-weight: bold;
+    text-align: center;
+    margin: 5px auto; 
+    max-width: 80%; 
+    padding: 5px; 
+    box-sizing: border-box; 
+}
+
+#Performer{
+    font-size: 18px; 
+    text-align: center;
+    margin: 5px auto; 
+    max-width: 80%; 
+    padding: 5px; 
+    box-sizing: border-box; 
+}
+
+#MusicLink{
+    font-size: 17px; 
+    font-weight: bold;
+    text-align: center;
+    margin: 5px auto; 
+    max-width: 80%; 
+    padding: 5px; 
+    box-sizing: border-box; 
+}
+
+.container {
+    column-count: 2;
+    column-width: 48%;
+    text-align: center; 
+    justify-content: center;
+    align-items: center;
+    padding-top: 2%;
+}
+
+.column {
+    break-inside: avoid; 
+    width: 100%; 
+}
+

@@ -4,10 +4,12 @@
 - some filter options
 - sort by options
 - 404 page
+- documentation
 
 # Next Steps
 - deploy site
-- documentation
+- 500 page
+- home page
 - querysets and cleaner views
 
 # Later Steps

@@ -35,7 +35,7 @@ class PerformanceSearchForm(forms.Form):
         required=False,
         label="Select Piece Types",
         widget=forms.SelectMultiple(attrs={
-            'class': 'multi-checkbox-dropdown-type',  
+            'class': 'multi-checkbox-dropdown-piece-type',  
             'placeholder': 'Select Piece Types',
         })
     )

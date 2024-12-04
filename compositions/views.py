@@ -37,7 +37,7 @@ def index(request):
             instrument_count=len(instrument_query)
             )
         if type_query:
-            compositions = compositions.filter(piece_type__icontains=type_query)
+            compositions = compositions.filter(piece_type__in=type_query)
     context = {"compositions" : compositions, "composition_search_form" : composition_search_form}
     return HttpResponse(template.render(context, request))
 

@@ -28,24 +28,27 @@ class CompositionSearchForm(forms.Form):
         label="Instruments Used",
         required=False
     )
-    type_query = forms.ChoiceField(
+    type_query = forms.MultipleChoiceField(
         choices=[],  
         required=False,
-        label="Select Piece Type",
-        widget=forms.Select(attrs={
-        'class': 'styled-input',
-        'placeholder': 'Select Piece Type',
-    })
+        label="Select Piece Types",
+        widget=forms.SelectMultiple(attrs={
+            'class': 'multi-checkbox-dropdown-piece-type',  
+            'placeholder': 'Select Piece Types',
+        })
     )
 
     def __init__(self, *args, **kwargs):
+        '''
+        Fills choices for piece type field.
+        '''
         super().__init__(*args, **kwargs)
         piece_types = (
-        Composition.objects
-        .values_list('piece_type', flat=True)
-        .distinct()
-        .order_by('piece_type') 
-    )
+            Composition.objects
+            .values_list('piece_type', flat=True)
+            .distinct()
+            .order_by('piece_type')  
+        )
         self.fields['type_query'].choices = [(pt, pt) for pt in piece_types]
 
     class Meta:

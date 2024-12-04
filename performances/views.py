@@ -39,7 +39,7 @@ def index(request):
             instrument_count=len(instrument_query)
             )
         if type_query:
-            performances = performances.filter(piece_type__icontains=type_query)
+            performances = performances.filter(piece_type__in=type_query)
     if sort_form.is_valid():
         sort_by = sort_form.cleaned_data['sort_by']
         if sort_by == 'newest':

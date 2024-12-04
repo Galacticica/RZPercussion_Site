@@ -6,15 +6,15 @@ Registers performance models into the built in admin page.
 """
 from django.contrib import admin
 
-from .models import Performed_Piece, Instruments, Performers, InstrumentCategory
+from .models import PerformedPiece, Instrument, Performer, InstrumentCategory
 
 
-admin.site.register(Instruments)
+admin.site.register(Instrument)
 admin.site.register(InstrumentCategory)
-admin.site.register(Performers)
+admin.site.register(Performer)
 
 class PerformanceAdmin(admin.ModelAdmin):
     list_display = ("title", "date")
     prepopulated_fields = {"slug" : ("title", "date")}
 
-admin.site.register(Performed_Piece ,PerformanceAdmin)
+admin.site.register(PerformedPiece ,PerformanceAdmin)

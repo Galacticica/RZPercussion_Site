@@ -5,7 +5,7 @@ Reagan Zierke <reaganzierke@gmail.com>
 Creates a form that allows the user to filter by different pieces of information such as title, instruments, etc.
 """
 from django import forms
-from .models import Composition, Instruments
+from .models import Composition, Instrument
 
 class CompositionSearchForm(forms.Form):
     '''
@@ -23,7 +23,7 @@ class CompositionSearchForm(forms.Form):
         widget=forms.CheckboxInput(attrs={'class': 'styled-checkbox'})  
     )
     instrument_query = forms.ModelMultipleChoiceField(
-        queryset=Instruments.objects.all(),
+        queryset=Instrument.objects.all(),
         widget=forms.SelectMultiple(attrs={'class': 'multi-checkbox-dropdown'}),  
         label="Instruments Used",
         required=False

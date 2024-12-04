@@ -10,7 +10,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.db.models import Q, Count
 from django.shortcuts import redirect
-from .models import Performed_Piece 
+from .models import PerformedPiece 
 from .forms import PerformanceSearchForm, SortForm
 
 def index(request):
@@ -20,7 +20,7 @@ def index(request):
     Additionally if the sort button was selected, it will sort the performances.
     It then renders the template, providing the forms and objects in the context.
     '''
-    performances = Performed_Piece.objects.order_by("-date")
+    performances = PerformedPiece.objects.order_by("-date")
     performance_search_form = PerformanceSearchForm(request.GET)
     sort_form = SortForm(request.GET)
     template = loader.get_template("performances/index.html")
@@ -61,7 +61,7 @@ def performance(request, slug):
     ----------
     slug : the unique id for the url of the performance
     '''
-    piece = get_object_or_404(Performed_Piece, slug=slug)
+    piece = get_object_or_404(PerformedPiece, slug=slug)
     insts = [instrument.name for instrument in piece.instruments.all()]
     players = [performer.name for performer in piece.performers.all()]
     players.sort()

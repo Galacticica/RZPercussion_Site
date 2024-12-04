@@ -6,7 +6,7 @@ Creates a form that allows the user to filter by different pieces of information
 It also creates a form that allows the user to sort by newest-oldest, oldest-newest, or a-z
 """
 from django import forms
-from .models import Performed_Piece, Instruments
+from .models import PerformedPiece, Instrument
 
 class PerformanceSearchForm(forms.Form):
     '''
@@ -25,7 +25,7 @@ class PerformanceSearchForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'styled-input'})  
     )
     instrument_query = forms.ModelMultipleChoiceField(
-        queryset=Instruments.objects.all(),
+        queryset=Instrument.objects.all(),
         widget=forms.SelectMultiple(attrs={'class': 'multi-checkbox-dropdown-insts'}),  
         label="Instruments Used",
         required=False
@@ -46,7 +46,7 @@ class PerformanceSearchForm(forms.Form):
         '''
         super().__init__(*args, **kwargs)
         piece_types = (
-            Performed_Piece.objects
+            PerformedPiece.objects
             .values_list('piece_type', flat=True)
             .distinct()
             .order_by('piece_type')  
@@ -54,7 +54,7 @@ class PerformanceSearchForm(forms.Form):
         self.fields['type_query'].choices = [(pt, pt) for pt in piece_types]
 
     class Meta:
-        model = Performed_Piece
+        model = PerformedPiece
         fields = ['title', 'composer', 'arranger', 'instruments', 'piece_type']
 
 

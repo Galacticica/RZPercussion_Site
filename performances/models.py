@@ -17,7 +17,7 @@ class InstrumentCategory(models.Model):
 # class InstrumentsQuerySet(models.QuerySet["Instruments"]):
 #     pass
 
-class Instruments(models.Model):
+class Instrument(models.Model):
     '''
     This creates a model for all of the different instruments. It is used by the performance model and composition model.
     '''
@@ -35,7 +35,7 @@ class Instruments(models.Model):
         return self.name
 
 
-class Performers(models.Model):
+class Performer(models.Model):
     '''
     This creates a model for all of the different performers/groups. It is used by the performance model.
     '''
@@ -44,7 +44,7 @@ class Performers(models.Model):
     def __str__(self):
         return self.name
 
-class Performed_Piece(models.Model):
+class PerformedPiece(models.Model):
     '''
     This creates the model for a performed piece. Most fields are required but some fields, such as arranger or music link, are not required as not every performance has those datapoints.
     It uses many to many fields for the instruments and performers, creating a relation between the piece and the instruments and performers models.
@@ -52,12 +52,12 @@ class Performed_Piece(models.Model):
     title = models.CharField(max_length=100)
     composer = models.CharField(max_length=100)
     arranger = models.CharField(max_length=100, blank=True)
-    performers = models.ManyToManyField(Performers, related_name='musical_pieces', blank=False)
+    performers = models.ManyToManyField(Performer, related_name='musical_pieces', blank=False)
     description = models.TextField()
     event = models.CharField(max_length=100, blank=True)
     link = models.URLField(max_length=200)
     piece_type = models.CharField(max_length=100)
-    instruments = models.ManyToManyField(Instruments, related_name='musical_pieces')
+    instruments = models.ManyToManyField(Instrument, related_name='musical_pieces')
     date = models.DateField(null=True, blank=True)
     music_link = models.URLField(max_length=200, blank=True)
     slug = models.SlugField(default="", null=False)

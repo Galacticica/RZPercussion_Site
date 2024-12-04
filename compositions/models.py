@@ -8,6 +8,9 @@ from django.db import models
 from performances.models import Instruments
 
 class Composition(models.Model):
+    '''
+    This is the model for the composition.
+    '''
     title = models.CharField(max_length=100)
     og_composer = models.CharField(max_length=200, blank=True)
     description = models.TextField()

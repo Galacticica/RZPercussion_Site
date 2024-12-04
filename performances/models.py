@@ -1,14 +1,26 @@
+"""
+models.py
+Reagan Zierke <reaganzierke@gmail.com>
+12-04-2024
+Creates the models for specific performances, instruments, piece types, instrument categories, and performers.
+"""
 from django.db import models
 
 class InstrumentCategory(models.Model):
+    '''
+    This creates a model for the different categories of instruments. It is mainly used for sorting instruments by their type.
+    '''
     category = models.CharField(max_length=100)
     def __str__(self):
         return self.category
 
-class InstrumentsQuerySet(models.QuerySet["Instruments"]):
-    pass
+# class InstrumentsQuerySet(models.QuerySet["Instruments"]):
+#     pass
 
 class Instruments(models.Model):
+    '''
+    This creates a model for all of the different instruments. It is used by the performance model and composition model.
+    '''
     name = models.CharField(max_length=100)
     category = models.ForeignKey(
     InstrumentCategory, 
@@ -22,18 +34,21 @@ class Instruments(models.Model):
     def __str__(self):
         return self.name
 
-class PieceType(models.Model):
-    type = models.CharField(max_length=100)
-    def __str__(self):
-        return self.type
 
 class Performers(models.Model):
+    '''
+    This creates a model for all of the different performers/groups. It is used by the performance model.
+    '''
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
 class Performed_Piece(models.Model):
+    '''
+    This creates the model for a performed piece. Most fields are required but some fields, such as arranger or music link, are not required as not every performance has those datapoints.
+    It uses many to many fields for the instruments and performers, creating a relation between the piece and the instruments and performers models.
+    '''
     title = models.CharField(max_length=100)
     composer = models.CharField(max_length=100)
     arranger = models.CharField(max_length=100, blank=True)

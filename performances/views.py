@@ -1,3 +1,9 @@
+"""
+views.py
+Reagan Zierke <reaganzierke@gmail.com>
+12-04-2024
+Creates the views for the performances part of the site. As of now, filtering also takes place here.
+"""
 from django.shortcuts import render, get_object_or_404
 
 from django.http import HttpResponse
@@ -8,6 +14,12 @@ from .models import Performed_Piece
 from .forms import PerformanceSearchForm, SortForm
 
 def index(request):
+    '''
+    This provides the view for the index of performances page. It loads the index html file and then gathers all performance objects.
+    If the filter form was filled out, it will filter the performances based on what the user input. 
+    Additionally if the sort button was selected, it will sort the performances.
+    It then renders the template, providing the forms and objects in the context.
+    '''
     performances = Performed_Piece.objects.order_by("-date")
     performance_search_form = PerformanceSearchForm(request.GET)
     sort_form = SortForm(request.GET)
@@ -40,6 +52,15 @@ def index(request):
     return HttpResponse(template.render(context, request)) 
 
 def performance(request, slug):
+    '''
+    This provides the view for the specific performance.
+    It provides the specific chosen piece as well as the instruments and players in that piece in the context.
+    It then renders the html template.
+
+    Parameters
+    ----------
+    slug : the unique id for the url of the performance
+    '''
     piece = get_object_or_404(Performed_Piece, slug=slug)
     insts = [instrument.name for instrument in piece.instruments.all()]
     players = [performer.name for performer in piece.performers.all()]

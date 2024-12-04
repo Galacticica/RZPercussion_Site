@@ -9,6 +9,9 @@ from django import forms
 from .models import Performed_Piece, Instruments
 
 class PerformanceSearchForm(forms.Form):
+    '''
+    The performance search form uses a few different types of fields to allow the user to filter by title, composer, instruments, and piece type.
+    '''
     title_query = forms.CharField(
         max_length=255,
         required=False,
@@ -38,6 +41,9 @@ class PerformanceSearchForm(forms.Form):
     )
 
     def __init__(self, *args, **kwargs):
+        '''
+        Fills choices for piece type field.
+        '''
         super().__init__(*args, **kwargs)
         piece_types = (
             Performed_Piece.objects
@@ -53,6 +59,9 @@ class PerformanceSearchForm(forms.Form):
 
 
 class SortForm(forms.Form):
+    '''
+    The sort form has a radio select button that allows the user to choose how they want to sort the performances.
+    '''
     SORT_CHOICES = [
         ('newest', 'Date (Newest to Oldest)'),
         ('oldest', 'Date (Oldest to Newest)'),

@@ -1,3 +1,10 @@
+"""
+forms.py
+Reagan Zierke <reaganzierke@gmail.com>
+12-03-2024
+Creates a form that allows the user to filter by different pieces of information such as title, instruments, etc.
+It also creates a form that allows the user to sort by newest-oldest, oldest-newest, or a-z
+"""
 from django import forms
 from .models import Performed_Piece, Instruments
 

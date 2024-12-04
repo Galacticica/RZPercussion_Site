@@ -3,11 +3,11 @@
 - about me page
 - some filter options
 - sort by options
+- 404 page
 
 # Next Steps
 - deploy site
 - documentation
-- 404 page
 - querysets and cleaner views
 
 # Later Steps

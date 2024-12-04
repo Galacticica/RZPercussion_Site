@@ -1,7 +1,16 @@
+"""
+forms.py
+Reagan Zierke <reaganzierke@gmail.com>
+12-03-2024
+Creates a form that allows the user to filter by different pieces of information such as title, instruments, etc.
+"""
 from django import forms
 from .models import Composition, Instruments
 
 class CompositionSearchForm(forms.Form):
+    '''
+    This is the filter form. It allows users to input a title, whether it is complete, and any isntruments used.
+    '''
     title_query = forms.CharField(
         max_length=255,
         required=False,

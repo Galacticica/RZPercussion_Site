@@ -1,3 +1,9 @@
+"""
+views.py
+Reagan Zierke <reaganzierke@gmail.com>
+12-03-2024
+Creates the views for the composition part of the site. As of now, filtering also takes place here.
+"""
 from django.shortcuts import render, get_object_or_404
 
 from django.http import HttpResponse
@@ -8,6 +14,10 @@ from .models import Composition
 from .forms import CompositionSearchForm
 
 def index(request):
+    '''
+    This view is for the index of all of the compositions. It filters any fields that may have been filled out in the form. 
+    It provides the context needed for the html template and renders the template.
+    '''
     compositions = Composition.objects.order_by('title')
     composition_search_form = CompositionSearchForm(request.GET)
     template = loader.get_template("compositions/index.html")
@@ -33,6 +43,16 @@ def index(request):
 
 
 def composition(request, slug):
+    '''
+    This view is for a specific composition.
+    It provides a specific composition object, as well as the instruments in the composition and renders the composition html template.
+
+    Parameters
+    ----------
+    
+    slug : the unique id for the url of the composition
+
+    '''
     piece = get_object_or_404(Composition, slug=slug)
     template = loader.get_template("compositions/composition.html")
     insts = [instrument.name for instrument in piece.instruments.all()]

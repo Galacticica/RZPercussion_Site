@@ -1,3 +1,9 @@
+"""
+admin.py
+Reagan Zierke <reaganzierke@gmail.com>
+12-03-2024
+Registers performance models into the built in admin page.
+"""
 from django.contrib import admin
 
 from .models import Performed_Piece, Instruments, Performers, InstrumentCategory, PieceType

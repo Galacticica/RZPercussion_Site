@@ -1,3 +1,9 @@
+"""
+models.py
+Reagan Zierke <reaganzierke@gmail.com>
+12-03-2024
+Creates a model for a composition that includes any information that might be relevant to a composition.
+"""
 from django.db import models
 from performances.models import Instruments
 

@@ -29,18 +29,23 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,rzpercussion.org,www.rzpercussion.org").split(",")
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,rzpercussion.org,www.rzpercussion.org,rzpercussion-site-winter-feather-107.fly.dev").split(",")
+CSRF_TRUSTED_ORIGINS = ['rzpercussion-site-winter-feather-107']
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
+SECURE_SSL_REDIRECT = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
+
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'home.apps.HomeConfig',
-    'aboutme.apps.AboutmeConfig',
-    'compositions.apps.CompositionsConfig',
-    'performances.apps.PerformancesConfig',
+    'home',
+    'aboutme',
+    'compositions',
+    'performances',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,9 +57,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -90,7 +95,7 @@ WSGI_APPLICATION = 'rzpercussion_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.getenv('DATABASE_URL', BASE_DIR / 'db.sqlite3'),
     }
 }
 

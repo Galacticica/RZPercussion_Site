@@ -22,14 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
+SECRET_KEY = os.getenv("SECRET_KEY", get_random_secret_key())
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost" ,"rzpercussion.org" ,"www.rzpercussion.org", "rzpercussion-site-winter-feather-107.fly.dev"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "rzpercussion-site-winter-feather-107.fly.dev"]
 CSRF_TRUSTED_ORIGINS = ['https://rzpercussion-site-winter-feather-107.fly.dev/']
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"

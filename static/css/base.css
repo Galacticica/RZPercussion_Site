@@ -28,6 +28,14 @@ a:hover {
     margin-bottom: 5px;
 }
 
+@media screen and (max-width: 600px) {
+    #RZPercussion {
+        font-size: 50px; 
+        margin-top: 5px; 
+        margin-bottom: 3px; 
+    }
+}
+
 nav {
     background-color: rgb(101, 0, 177); 
     padding: 10px;

@@ -30,7 +30,7 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,rzpercussion.org,www.rzpercussion.org,rzpercussion-site-winter-feather-107.fly.dev").split(",")
-CSRF_TRUSTED_ORIGINS = ['https://rzpercussion-site-winter-feather-107.fly.dev', 'http://rzpercussion-site-winter-feather-107.fly.dev']
+CSRF_TRUSTED_ORIGINS = ['https://rzpercussion-site-winter-feather-107.fly.dev/', 'http://rzpercussion-site-winter-feather-107.fly.dev/']
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 # SECURE_SSL_REDIRECT = not DEBUG

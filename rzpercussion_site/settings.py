@@ -29,8 +29,8 @@ SECRET_KEY = os.getenv("SECRET_KEY", get_random_secret_key())
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "rzpercussion-site-winter-feather-107.fly.dev"]
-CSRF_TRUSTED_ORIGINS = ['https://rzpercussion-site-winter-feather-107.fly.dev/']
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "rzpercussion-site-winter-feather-107.fly.dev", 'rzpercussion.org', 'www.rzpercussion.org']
+CSRF_TRUSTED_ORIGINS = ['https://rzpercussion-site-winter-feather-107.fly.dev', 'https://rzpercussion.org']
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 # SECURE_SSL_REDIRECT = not DEBUG

@@ -11,8 +11,14 @@ class InstrumentCategory(models.Model):
     This creates a model for the different categories of instruments. It is mainly used for sorting instruments by their type.
     '''
     category = models.CharField(max_length=100)
+
+    class Meta:
+        verbose_name = "Instrument Category"
+        verbose_name_plural = "Instrument Categories"
+
     def __str__(self):
         return self.category
+
 
 # class InstrumentsQuerySet(models.QuerySet["Instruments"]):
 #     pass

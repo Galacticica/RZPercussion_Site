@@ -29,7 +29,7 @@ console_command = '/code/manage.py shell'
 [[vm]]
   memory = '512mb'
   cpu_kind = 'shared'
-  cpus = 2
+  cpus = 1
 
 [[statics]]
   guest_path = '/code/static'

@@ -39,11 +39,7 @@
                         {% if performance.arranger %} arranged by {{ performance.arranger }} {% endif %}
                     </a>
                     <p id="PerformanceOther">
-                        {% if performance.piece_type in ['Solo', 'Duet', 'Trio', 'Quartet', 'Cover', 'Drumline Cadence']}
                         {{ performance.piece_type }}
-                        {% else %}
-                        {{performance.piece_type}} Piece
-                        {% endif %}
                         {% if performance.event %} performed for {{ performance.event }} {% endif %}
                     </p>
                 </div>

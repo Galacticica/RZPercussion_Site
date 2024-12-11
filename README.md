@@ -5,9 +5,9 @@
 - sort by options
 - 404 page
 - documentation
+- site is deployed
 
 # Next Steps
-- deploy site
 - home page
 - querysets and cleaner views
 

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <link rel="stylesheet" href="{% static 'css/404.css' %}">
+    <title>Error</title>{% endblock %}
+
+</head>
+<body>
+    {% block content %}<h1 id="Error">Sorry, the page you are looking for does not exist!</h1> {% endblock %}
+</body>
+</html>

@@ -109,3 +109,29 @@
     width: 100%; 
 }
 
+
+@media screen and (max-width: 768px) {
+    #PieceTitle {
+        font-size: 36px; 
+    }
+
+    #PieceWriters {
+        font-size: 20px;
+    }
+
+    #Description, #PieceType, #InstrumentUsed, #Event, #PerformerLabel, #Performer, #MusicLink {
+        font-size: 16px;
+        max-width: 90%; 
+    }
+
+    .container {
+        column-count: 1; 
+        column-width: 100%; 
+        padding-top: 5%;
+    }
+
+    iframe {
+        width: 100%; 
+        height: auto; 
+    }
+}

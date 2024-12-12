@@ -87,3 +87,9 @@ form {
 #CompOther {
     font-size: 17px; 
 }
+
+@media (max-width: 768px) {
+    a {
+        text-decoration: underline !important;
+    }
+}

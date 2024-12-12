@@ -21,6 +21,7 @@ def index(request):
     It then renders the template, providing the forms and objects in the context.
     '''
     performances = PerformedPiece.objects.order_by("-date")
+    # performances = performances.filter(is_public=True)
     performance_search_form = PerformanceSearchForm(request.GET)
     sort_form = SortForm(request.GET)
     template = loader.get_template("performances/index.html")
@@ -29,7 +30,6 @@ def index(request):
         composer_query = performance_search_form.cleaned_data['composer_query']
         instrument_query = performance_search_form.cleaned_data['instrument_query']
         type_query = performance_search_form.cleaned_data['type_query']
-        # performances = performances.filter(is_public=True)
         performances = performances.filter(title__icontains=title_query)
         performances = performances.filter(Q(composer__icontains=composer_query) | Q(arranger__icontains=composer_query))
         if instrument_query:

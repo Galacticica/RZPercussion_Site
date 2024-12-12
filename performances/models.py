@@ -67,7 +67,7 @@ class PerformedPiece(models.Model):
     date = models.DateField(null=True, blank=True)
     music_link = models.URLField(max_length=200, blank=True)
     slug = models.SlugField(default="", null=False)
-    # is_public = models.BooleanField(default=True)
+    is_public = models.BooleanField(default=True)
     
 
     def __str__(self):

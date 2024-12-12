@@ -21,7 +21,7 @@ def index(request):
     It then renders the template, providing the forms and objects in the context.
     '''
     performances = PerformedPiece.objects.order_by("-date")
-    # performances = performances.filter(is_public=True)
+    performances = performances.filter(is_public=True)
     performance_search_form = PerformanceSearchForm(request.GET)
     sort_form = SortForm(request.GET)
     template = loader.get_template("performances/index.html")

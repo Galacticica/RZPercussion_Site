@@ -43,12 +43,14 @@ class CompositionSearchForm(forms.Form):
         Fills choices for piece type field.
         '''
         super().__init__(*args, **kwargs)
+        
         piece_types = (
             Composition.objects
             .values_list('piece_type', flat=True)
             .distinct()
             .order_by('piece_type')  
         )
+
         self.fields['type_query'].choices = [(pt, pt) for pt in piece_types]
 
     class Meta:

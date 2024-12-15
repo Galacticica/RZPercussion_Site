@@ -18,18 +18,21 @@ class PerformanceSearchForm(forms.Form):
         label="Title",
         widget=forms.TextInput(attrs={'class': 'styled-input'})  
     )
+
     composer_query = forms.CharField(
         max_length=255,
         required=False,
         label="Composer / Arranger",
         widget=forms.TextInput(attrs={'class': 'styled-input'})  
     )
+
     instrument_query = forms.ModelMultipleChoiceField(
         queryset=Instrument.objects.all(),
         widget=forms.SelectMultiple(attrs={'class': 'multi-checkbox-dropdown-insts'}),  
         label="Instruments Used",
         required=False
     )
+    
     type_query = forms.MultipleChoiceField(
         choices=[],  
         required=False,
